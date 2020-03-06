@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <link rel="stylesheet" href="mycss.css">
+    </head>
+    <body>
+        <div id="app">
+            <h1 v-once>{{ title }}</h1>
+            <input type="text" v-on:input="changeTitle">
+            <p v-on:input="">{{ title }} - <a :href="link">Google</a></p>
+            <hr>
+            <p v-html="finishedLink"></p>
+            <button @click="counter++">Increase</button>
+            <button v-on:click="counter--">Decrease</button>
+            <button v-on:click="secondCounter++">Increase Second</button>
+            <p>{{counter}} | {{secondCounter}} - {{result()}} | {{output}}</p>
+            <p v-on:mousemove="updateCoordinates">
+                Coordinates: {{ x }} / {{ y }}
+                - <span v-on:mousemove.stop="">DEAD SPOT</span>
+            </p>
+            <input type="text" v-on:keyup.enter.space="alertMe">
+            <input type="text" v-model="name">
+            <p>{{name}}</p>
+            <hr>
+            <div class="demo" @click="isClicked = !isClicked" :class="divClasses"></div>
+            <div class="demo" @click="isClicked = !isClicked" :style="{backgroundColor: color}"></div>
+            <div class="demo" :style="myStyle"></div>
+            <hr>
+            <input type="text" v-model="color">
+            <input type="text" v-model="width">
+        </div>
+        <script src="myvue.js"></script>
+    </body>
+</html>
